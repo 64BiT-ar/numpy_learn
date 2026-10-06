@@ -124,3 +124,5 @@ print(np.vstack((a,b)))
 # [4 5 6]
 print(np.hstack((a,b)))
 # [1 2 3 4 5 6]
+
+# tomorrow
