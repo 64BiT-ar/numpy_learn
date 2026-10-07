@@ -105,7 +105,7 @@ arr3 = np.array([[1,2,3],
 #       change, rows/col - convert higher dimensional array to 1D array
 
 arr = np.array([1,2,3,4])
-print(arr)
+# print(arr)
 
 # print(arr.reshape(1,4))
 # print(arr.reshape(2,2))
@@ -113,16 +113,101 @@ print(arr)
 # print(arr.reshape(3,2)) # gives error
 
 reshaped = arr.reshape(4,1) # 4 rows 1 col
-print(reshaped.flatten()) # again to 1D array
+# print(reshaped.flatten()) # again to 1D array
 
 #           -------------- Stacking and splitting
 
 a = [1,2,3]
 b = [4,5,6]
-print(np.vstack((a,b)))
+# print(np.vstack((a,b))) # create 2d - maybe
 # [1 2 3]
 # [4 5 6]
-print(np.hstack((a,b)))
+# print(np.hstack((a,b)))
 # [1 2 3 4 5 6]
 
-# tomorrow
+# 
+
+arr = np.array([[1,2,3],
+                [4,5,6]])
+hor_split = np.hsplit(arr,3)
+
+# for r in hor_split:
+#     print(r)
+
+ver_split = np.vsplit(arr,2)
+
+# for r in ver_split:
+    # print(r)
+
+
+# ---------- Mathematical operations
+
+a = np.array([10,20,30,40])
+b = np.array([5,20,2,4])
+
+# print(a+10)
+# print(a*2)
+# print(a/5)
+# print(a-4)
+
+# print(np.sqrt(a))
+# print(np.square(a))
+# print(np.cos(a))
+
+# print(a+b)
+# OR 
+# print(np.add(a,b))
+# print(np.subtract(a,b))
+
+
+# - ------ Dot Product
+# mul first row with first col of next matrix
+# print(np.dot(a,b))
+
+# print(arr.T) # convert rows to col and col to rows
+
+# --------------- Statistical operation sum, mean median mode
+
+# print(np.sum(a))
+# print(np.mean(a))
+# print(np.mod(a,b)) # calculates the element-wise remainder of a division between two arrays or numbers
+# print(np.std(a)) # computes the standard deviation of array elements along a specified axis
+# print(np.min(a))
+# print(np.max(a))
+
+a = np.array([1,2,3])
+b = np.array([3,4,3])
+
+# print(a == b) # compares at each index
+# print(np.array_equal(a,b))
+
+
+# ------------- Broadcasting allows arithmatic operations to be performed on arrays of different sizes and shapes, eliminate need of explicit loop
+
+a = np.array([1,2,3,4])
+b = np.array([5]) # add to each elemenet due to broadcasting rule
+
+ab = np.array([[1,2,3],
+               [5,10,15]])
+b = [5,5,5]
+
+print(ab+b)
+# [[ 6  7  8]
+#  [10 15 20]
+
+
+# handling with nan, when want to give null value
+# inf mean infinite value
+
+data = np.array([1,2,3,np.nan, 4, np.inf])
+print(data)
+print(np.isnan(data))
+print(np.nan_to_num(data)) # null will be assigned 0
+
+# ------- Save and load(reopen) file
+
+arr = np.array([111,222,333])
+np.save("my_arr.npy", arr)
+
+loaded_arr = np.load('my_arr.npy')
+print(loaded_arr)
