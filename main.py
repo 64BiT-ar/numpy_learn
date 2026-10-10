@@ -16,7 +16,7 @@ arr = np.array([[list1, list2, list3],[list1,list2,list3]], dtype="int32") # cre
 
 # print(arr)
 # print(arr[1,:,0]) # 1 matrix, every row ka 1st col
-# print(arr.shape)
+# print(arr.shape) # tells about dimension
 
 #           -----------  np Array attributes
 
